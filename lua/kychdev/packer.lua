@@ -76,7 +76,10 @@ return require('packer').startup(function(use)
     requires = {'kyazdani42/nvim-web-devicons'}
   }
 
-  use {'ojroques/nvim-osc52'}
+  use 'ojroques/nvim-osc52'
+  use 'mfussenegger/nvim-dap'
+  use 'jay-babu/mason-nvim-dap.nvim'
+  use 'rcarriga/nvim-dap-ui'
 
   if packer_bootstrap then
     require('packer').sync()
