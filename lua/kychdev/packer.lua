@@ -1,8 +1,8 @@
 local ensure_packer = function()
   local fn = vim.fn
-  local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
+  local install_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
   if fn.empty(fn.glob(install_path)) > 0 then
-    fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
+    fn.system({ 'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path })
     vim.cmd [[packadd packer.nvim]]
     return true
   end
@@ -16,19 +16,19 @@ return require('packer').startup(function(use)
   use "wbthomason/packer.nvim"
 
   use {
-	  'nvim-telescope/telescope.nvim', tag = '0.1.1',
-	  -- or                            , branch = '0.1.x',
-	  requires = { {'nvim-lua/plenary.nvim'} }
+    'nvim-telescope/telescope.nvim', tag = '0.1.1',
+    -- or                            , branch = '0.1.x',
+    requires = { { 'nvim-lua/plenary.nvim' } }
   }
 
   use "olimorris/onedarkpro.nvim"
 
   use {
-	  'nvim-treesitter/nvim-treesitter',
-	  run = function()
-		  local ts_update = require('nvim-treesitter.install').update({ with_sync = true })
-		  ts_update()
-	  end
+    'nvim-treesitter/nvim-treesitter',
+    run = function()
+      local ts_update = require('nvim-treesitter.install').update({ with_sync = true })
+      ts_update()
+    end
   }
   use "nvim-treesitter/playground"
 
@@ -37,26 +37,26 @@ return require('packer').startup(function(use)
   use "tpope/vim-fugitive"
 
   use {
-        'VonHeikemen/lsp-zero.nvim',
-        branch = 'v3.x',
-        requires = {
-            --- Uncomment these if you want to manage LSP servers from neovim
-            {
-                'williamboman/mason.nvim',
-                run = function()
-                    pcall(vim.cmd, 'MasonUpdate')
-                end,
-            },
-            { 'williamboman/mason-lspconfig.nvim' },
+    'VonHeikemen/lsp-zero.nvim',
+    branch = 'v3.x',
+    requires = {
+      --- Uncomment these if you want to manage LSP servers from neovim
+      {
+        'williamboman/mason.nvim',
+        run = function()
+          pcall(vim.cmd, 'MasonUpdate')
+        end,
+      },
+      { 'williamboman/mason-lspconfig.nvim' },
 
-            -- LSP Support
-            { 'neovim/nvim-lspconfig' },
+      -- LSP Support
+      { 'neovim/nvim-lspconfig' },
 
-            -- Autocompletion
-            { 'hrsh7th/nvim-cmp' },
-            { 'hrsh7th/cmp-nvim-lsp' },
-            { 'L3MON4D3/LuaSnip' },
-        }
+      -- Autocompletion
+      { 'hrsh7th/nvim-cmp' },
+      { 'hrsh7th/cmp-nvim-lsp' },
+      { 'L3MON4D3/LuaSnip' },
+    }
   }
 
   use 'hrsh7th/cmp-omni'
@@ -65,21 +65,21 @@ return require('packer').startup(function(use)
   use 'rcarriga/nvim-dap-ui'
 
   use {
-      'nvim-tree/nvim-tree.lua',
-      requires = {
-          'nvim-tree/nvim-web-devicons', -- optional
-      }
+    'nvim-tree/nvim-tree.lua',
+    requires = {
+      'nvim-tree/nvim-web-devicons',     -- optional
+    }
   }
 
   use {
-      'nvim-lualine/lualine.nvim',
-      requires = { 'nvim-tree/nvim-web-devicons', opt = true }
+    'nvim-lualine/lualine.nvim',
+    requires = { 'nvim-tree/nvim-web-devicons', opt = true }
   }
 
   use 'lervag/vimtex'
   use {
     'romgrk/barbar.nvim',
-    requires = {'kyazdani42/nvim-web-devicons'}
+    requires = { 'kyazdani42/nvim-web-devicons' }
   }
 
   use 'ojroques/nvim-osc52'
