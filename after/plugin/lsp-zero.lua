@@ -1,4 +1,5 @@
 local lsp_zero = require('lsp-zero')
+local trouble = require('trouble')
 
 lsp_zero.on_attach(function(client, bufnr)
     lsp_zero.default_keymaps({ buffer = bufnr })
@@ -7,6 +8,9 @@ lsp_zero.on_attach(function(client, bufnr)
     local opts = { buffer = bufnr }
     vim.keymap.set({ 'n', 'x' }, 'gq', function()
         vim.lsp.buf.format({ async = false, timeout_ms = 10000 })
+    end, opts)
+    vim.keymap.set({ 'n', 'x' }, "gr", function()
+        trouble.open("lsp_references")
     end, opts)
 end)
 
@@ -21,6 +25,9 @@ require('mason-lspconfig').setup({
                 settings = {
                     pylsp = {
                         plugins = {
+                            jedi = {
+                                auto_import_modules = {}
+                            },
                             pylsp_black = {
                                 enabled = true
                             },
@@ -38,7 +45,7 @@ require('mason-lspconfig').setup({
                                 extendSelect = { "I" }
                             },
                             pylsp_mypy = {
-                                enabled = enabled,
+                                enabled = true,
                                 overrides = { "--python-executable",
                                     "python",
                                     true }
@@ -63,7 +70,8 @@ cmp.setup {
     sources = cmp.config.sources {
         { name = 'nvim_lsp' },
         { name = 'nvim_lua' },
-        { name = 'omni' }
+        { name = 'omni' },
+        { name = "nvim_lsp_signature_help" }
     },
     formatting = lsp_zero.cmp_format(),
     window = {
