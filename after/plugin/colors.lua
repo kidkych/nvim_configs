@@ -19,6 +19,7 @@ require('illuminate').configure({
         'dirbuf',
         'dirvish',
         'fugitive',
+        'tex'
     }
 })
 
