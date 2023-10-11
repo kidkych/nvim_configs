@@ -1,5 +1,7 @@
 local lsp_zero = require('lsp-zero')
-local trouble = require('trouble')
+local trouble = require('trouble').setup({
+    auto_open = true
+})
 
 lsp_zero.on_attach(function(client, bufnr)
     lsp_zero.default_keymaps({ buffer = bufnr })
@@ -11,6 +13,9 @@ lsp_zero.on_attach(function(client, bufnr)
     end, opts)
     vim.keymap.set({ 'n', 'x' }, "gr", function()
         trouble.open("lsp_references")
+    end, opts)
+    vim.keymap.set({ 'n', 'x' }, "ca", function()
+        vim.lsp.buf.code_action()
     end, opts)
 end)
 

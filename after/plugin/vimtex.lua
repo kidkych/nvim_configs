@@ -9,7 +9,12 @@ vim.g.vimtex_compiler_latexmk = {
     }
 }
 
+vim.g.vimtex_quickfix_method = 'pplatex'
+vim.g.vimtex_quickfix_mode = 0
+
 vim.g.vimtex_quickfix_ignore_filters = {
-    "LaTeX Font Warning:"
+    '(LaTeX Font)  Font shape',
+    'Underfull',
+    'multiple pdfs with page group included in a single page'
 }
 -- vim.opt.maplocalleader = ","
