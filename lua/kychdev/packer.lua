@@ -65,7 +65,7 @@ return require('packer').startup(function(use)
     use 'hrsh7th/cmp-nvim-lsp-signature-help'
 
     use 'mfussenegger/nvim-dap'
-    use 'jay-babu/mason-nvim-dap.nvim'
+    use 'mfussenegger/nvim-dap-python'
     use 'rcarriga/nvim-dap-ui'
 
     use 'folke/trouble.nvim'
@@ -89,6 +89,7 @@ return require('packer').startup(function(use)
     }
 
     use 'ojroques/nvim-osc52'
+    use 'Vimjas/vim-python-pep8-indent'
 
     if packer_bootstrap then
         require('packer').sync()
