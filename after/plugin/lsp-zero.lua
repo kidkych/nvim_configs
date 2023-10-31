@@ -1,16 +1,17 @@
 local lsp_zero = require('lsp-zero')
 local trouble = require('trouble').setup({
-    auto_open = true
+    auto_open = true,
+    mode = "document_diagnostics"
+})
+
+vim.diagnostic.config({
+    virtual_text = false,
 })
 
 lsp_zero.on_attach(function(client, bufnr)
     lsp_zero.default_keymaps({ buffer = bufnr })
-    lsp_zero.buffer_autoformat()
 
     local opts = { buffer = bufnr }
-    vim.keymap.set({ 'n', 'x' }, 'gq', function()
-        vim.lsp.buf.format({ async = false, timeout_ms = 10000 })
-    end, opts)
     vim.keymap.set({ 'n', 'x' }, "gr", function()
         trouble.open("lsp_references")
     end, opts)
@@ -37,6 +38,16 @@ require('mason-lspconfig').setup({
                         }
                     }
                 }
+            })
+        end,
+        omnisharp = function()
+            require('lspconfig').omnisharp.setup({
+                handlers = {
+                    ["textDocument/definition"] = require('omnisharp_extended').handler
+                },
+                enable_roslyn_analyzers = true,
+                enable_decompilation_support = true,
+                cmd = { 'omnisharp' }
             })
         end,
         lua_ls = function()

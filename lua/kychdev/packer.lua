@@ -60,6 +60,7 @@ return require('packer').startup(function(use)
         }
     }
 
+    use 'Hoffs/omnisharp-extended-lsp.nvim'
     use 'RRethy/vim-illuminate'
     use 'hrsh7th/cmp-omni'
     use 'hrsh7th/cmp-nvim-lsp-signature-help'
@@ -90,6 +91,8 @@ return require('packer').startup(function(use)
 
     use 'ojroques/nvim-osc52'
     use 'Vimjas/vim-python-pep8-indent'
+
+    use 'stevearc/conform.nvim'
 
     if packer_bootstrap then
         require('packer').sync()
