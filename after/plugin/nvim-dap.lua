@@ -1,4 +1,6 @@
-require('dap-python').setup('~/.local/share/nvim/mason/packages/debugpy/venv/bin/python')
+require('dap-python').setup(
+    '~/.local/share/nvim/mason/packages/debugpy/venv/bin/python'
+)
 
 
 local dap = require("dap")
@@ -9,7 +11,14 @@ dap.adapters.coreclr = {
 	args = { '--interpreter=vscode' }
 }
 
-require('dap.ext.vscode').load_launchjs(nil, { cppdbg = { 'cpp' }, codelldb = { 'cpp' }, coreclr = { 'cs' } })
+require('dap.ext.vscode').load_launchjs(
+    nil,
+    {
+        cppdbg = { 'cpp' },
+        codelldb = { 'cpp' },
+        coreclr = { 'cs' }
+    }
+)
 
 vim.keymap.set("n", "<leader>dd", dap.continue, {})
 vim.keymap.set("n", "<leader>db", dap.toggle_breakpoint, {})

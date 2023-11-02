@@ -6,8 +6,6 @@ vim.g.mapleader = " "
 
 vim.keymap.set({ "n", "v" }, ".", "<nop>")
 
-vim.keymap.set("n", "<leader>i", vim.diagnostic.open_float)
-
 -- Remaining remaps from ThePrimeagen, https://github.com/ThePrimeagen/init.lua
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 

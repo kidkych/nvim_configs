@@ -1,5 +1,11 @@
 local lsp_zero = require('lsp-zero')
-local trouble = require('trouble').setup({
+local trouble = require('trouble')
+
+vim.keymap.set({'n', 'x'}, "gt", function()
+    trouble.toggle()
+end)
+
+trouble.setup({
     auto_open = true,
     mode = "document_diagnostics"
 })
@@ -43,10 +49,11 @@ require('mason-lspconfig').setup({
         omnisharp = function()
             require('lspconfig').omnisharp.setup({
                 handlers = {
-                    ["textDocument/definition"] = require('omnisharp_extended').handler
+                    ["textDocument/definition"] =
+                        require('omnisharp_extended').handler
                 },
                 enable_roslyn_analyzers = true,
-                enable_decompilation_support = true,
+                analyze_open_documents_only = true,
                 cmd = { 'omnisharp' }
             })
         end,
