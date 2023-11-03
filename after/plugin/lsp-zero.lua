@@ -2,7 +2,7 @@ local lsp_zero = require('lsp-zero')
 local trouble = require('trouble')
 
 vim.keymap.set({'n', 'x'}, "gt", function()
-    trouble.toggle()
+    trouble.toggle('document_diagnostics')
 end)
 
 trouble.setup({

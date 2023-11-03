@@ -94,6 +94,8 @@ return require('packer').startup(function(use)
 
     use 'stevearc/conform.nvim'
 
+    use 'lukas-reineke/indent-blankline.nvim'
+
     if packer_bootstrap then
         require('packer').sync()
     end
