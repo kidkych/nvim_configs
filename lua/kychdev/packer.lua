@@ -96,6 +96,10 @@ return require('packer').startup(function(use)
 
     use 'lukas-reineke/indent-blankline.nvim'
 
+    use 'simrat39/symbols-outline.nvim'
+    use 'lewis6991/gitsigns.nvim'
+    use 'HiPhish/rainbow-delimiters.nvim'
+
     if packer_bootstrap then
         require('packer').sync()
     end
