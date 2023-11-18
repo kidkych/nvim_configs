@@ -2,7 +2,6 @@ require('dap-python').setup(
     '~/.local/share/nvim/mason/packages/debugpy/venv/bin/python'
 )
 
-
 local dap = require("dap")
 
 dap.adapters.coreclr = {

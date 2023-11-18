@@ -33,9 +33,9 @@ return require('packer').startup(function(use)
     }
     use "nvim-treesitter/playground"
 
+    use 'ojroques/nvim-osc52'
     use "theprimeagen/harpoon"
     use "mbbill/undotree"
-    use "tpope/vim-fugitive"
 
     use {
         'VonHeikemen/lsp-zero.nvim',
@@ -59,46 +59,44 @@ return require('packer').startup(function(use)
             { 'L3MON4D3/LuaSnip' },
         }
     }
-
-    use 'Hoffs/omnisharp-extended-lsp.nvim'
-    use 'RRethy/vim-illuminate'
     use 'hrsh7th/cmp-omni'
     use 'hrsh7th/cmp-nvim-lsp-signature-help'
+    use 'Hoffs/omnisharp-extended-lsp.nvim'
+    use 'simrat39/symbols-outline.nvim'
+    use 'RRethy/vim-illuminate'
+    use 'folke/trouble.nvim'
+
+    use 'Vimjas/vim-python-pep8-indent'
+    use 'lukas-reineke/indent-blankline.nvim'
+    use 'HiPhish/rainbow-delimiters.nvim'
 
     use 'mfussenegger/nvim-dap'
     use 'mfussenegger/nvim-dap-python'
     use 'rcarriga/nvim-dap-ui'
+    
+    use 'stevearc/overseer.nvim'
 
-    use 'folke/trouble.nvim'
-
+    use {
+        'romgrk/barbar.nvim',
+        requires = { 'kyazdani42/nvim-web-devicons' }
+    }
     use {
         'nvim-tree/nvim-tree.lua',
         requires = {
             'nvim-tree/nvim-web-devicons', -- optional
         }
     }
-
     use {
         'nvim-lualine/lualine.nvim',
         requires = { 'nvim-tree/nvim-web-devicons', opt = true }
     }
 
     use 'lervag/vimtex'
-    use {
-        'romgrk/barbar.nvim',
-        requires = { 'kyazdani42/nvim-web-devicons' }
-    }
-
-    use 'ojroques/nvim-osc52'
-    use 'Vimjas/vim-python-pep8-indent'
 
     use 'stevearc/conform.nvim'
 
-    use 'lukas-reineke/indent-blankline.nvim'
-
-    use 'simrat39/symbols-outline.nvim'
     use 'lewis6991/gitsigns.nvim'
-    use 'HiPhish/rainbow-delimiters.nvim'
+    use "tpope/vim-fugitive"
 
     if packer_bootstrap then
         require('packer').sync()
