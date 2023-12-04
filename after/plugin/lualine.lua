@@ -37,18 +37,39 @@ onedarkpro.inactive = {
 }
 
 require('lualine').setup({
-    inactive_sections = {
+    options = {
+        theme = onedarkpro
+    },
+    tabline = {
         lualine_a = {},
-        lualine_b = {'branch', 'diff', 'diagnostics'},
+        lualine_b = {
+            {
+                'tabs',
+                mode = 2
+            }
+        },
+        lualine_c = {},
+        lualine_x = {},
+        lualine_y = {'branch', 'diff'},
+        lualine_z = {}
+    },
+    sections = {
+        lualine_a = {'mode'},
+        lualine_b = {'diagnostics'},
         lualine_c = {'filename'},
         lualine_x = {'encoding', 'fileformat', 'filetype'},
         lualine_y = {'progress'},
         lualine_z = {'location'}
     },
-    options = {
-        theme = onedarkpro
+    inactive_sections = {
+        lualine_a = {},
+        lualine_b = {'diagnostics'},
+        lualine_c = {'filename'},
+        lualine_x = {},
+        lualine_y = {},
+        lualine_z = {}
     },
-    extensions = {
-        'nvim-tree'
-    }
+    -- extensions = {
+    --     'nvim-tree'
+    -- }
 })

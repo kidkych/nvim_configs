@@ -77,10 +77,6 @@ return require('packer').startup(function(use)
     use 'stevearc/overseer.nvim'
 
     use {
-        'romgrk/barbar.nvim',
-        requires = { 'kyazdani42/nvim-web-devicons' }
-    }
-    use {
         'nvim-tree/nvim-tree.lua',
         requires = {
             'nvim-tree/nvim-web-devicons', -- optional
