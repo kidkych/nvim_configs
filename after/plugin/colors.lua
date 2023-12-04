@@ -3,8 +3,7 @@ require("onedarkpro").setup({
     },
     options = {
         cursorline = true,
-        transparency = true,
-        highlight_inactive_windows = true
+        terminal = false
     },
     highlights = {
         IlluminatedWordText = { link = "Visual" },

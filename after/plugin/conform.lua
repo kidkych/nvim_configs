@@ -48,4 +48,8 @@ vim.api.nvim_create_user_command("Format", function(args)
   require("conform").format({ async = true, lsp_fallback = false, range = range })
 end, { range = true })
 
-vim.o.formatexpr = "v:lua.require'conform'.formatexpr()"
+_G.formatexpr_wrap = function()
+    require('conform').formatexpr({ timeout_ms = 1000 })
+end
+
+vim.o.formatexpr = "v:lua.formatexpr_wrap()"
