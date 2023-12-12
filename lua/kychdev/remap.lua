@@ -6,6 +6,8 @@ vim.g.mapleader = " "
 
 vim.keymap.set({ "n", "v" }, ".", "<nop>")
 
+vim.keymap.set("n", "gc", ":tabnew<cr>")
+
 -- Remaining remaps from ThePrimeagen, https://github.com/ThePrimeagen/init.lua
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 
