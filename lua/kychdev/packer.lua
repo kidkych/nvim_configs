@@ -61,7 +61,8 @@ return require('packer').startup(function(use)
     }
     use 'hrsh7th/cmp-omni'
     use 'hrsh7th/cmp-nvim-lsp-signature-help'
-    use 'Hoffs/omnisharp-extended-lsp.nvim'
+    -- use 'Hoffs/omnisharp-extended-lsp.nvim'
+    use 'jmederosalvarado/roslyn.nvim'
     use 'simrat39/symbols-outline.nvim'
     use 'RRethy/vim-illuminate'
     use 'folke/trouble.nvim'
@@ -73,7 +74,7 @@ return require('packer').startup(function(use)
     use 'mfussenegger/nvim-dap'
     use 'mfussenegger/nvim-dap-python'
     use 'rcarriga/nvim-dap-ui'
-    
+ 
     use 'stevearc/overseer.nvim'
 
     use {

@@ -46,17 +46,17 @@ require('mason-lspconfig').setup({
                 }
             })
         end,
-        omnisharp = function()
-            require('lspconfig').omnisharp.setup({
-                handlers = {
-                    ["textDocument/definition"] =
-                        require('omnisharp_extended').handler
-                },
-                enable_roslyn_analyzers = true,
-                analyze_open_documents_only = true,
-                cmd = { 'omnisharp' }
-            })
-        end,
+        -- omnisharp = function()
+        --     require('lspconfig').omnisharp.setup({
+        --         handlers = {
+        --             ["textDocument/definition"] =
+        --                 require('omnisharp_extended').handler
+        --         },
+        --         enable_roslyn_analyzers = true,
+        --         analyze_open_documents_only = true,
+        --         cmd = { 'omnisharp' }
+        --     })
+        -- end,
         lua_ls = function()
             require('lspconfig').lua_ls.setup({
                 settings = {
@@ -86,6 +86,13 @@ require('mason-lspconfig').setup({
             })
         end
     }
+})
+
+require("roslyn").setup({
+    dotnet_cmd = "/usr/bin/dotnet",
+    roslyn_version = "4.8.0-3.23475.7",
+    on_attach = lsp_zero.on_attach,
+    capabilities = lsp_zero.get_capabilities()
 })
 
 local cmp = require('cmp')
