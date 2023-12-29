@@ -21,8 +21,25 @@ return require('packer').startup(function(use)
         requires = { { 'nvim-lua/plenary.nvim' } }
     }
 
+    use {
+        'nvim-tree/nvim-tree.lua',
+        requires = {
+            'nvim-tree/nvim-web-devicons', -- optional
+        }
+    }
+
+    use {
+        'nvim-lualine/lualine.nvim',
+        requires = { 'nvim-tree/nvim-web-devicons', opt = true }
+    }
+
+    use "rcarriga/nvim-notify"
+    use "stevearc/dressing.nvim"
+
     use "olimorris/onedarkpro.nvim"
     use "norcalli/nvim-colorizer.lua"
+    use 'HiPhish/rainbow-delimiters.nvim'
+    use 'RRethy/vim-illuminate'
 
     use {
         'nvim-treesitter/nvim-treesitter',
@@ -59,40 +76,27 @@ return require('packer').startup(function(use)
             { 'L3MON4D3/LuaSnip' },
         }
     }
+
     use 'hrsh7th/cmp-omni'
     use 'hrsh7th/cmp-nvim-lsp-signature-help'
     use 'Hoffs/omnisharp-extended-lsp.nvim'
-    use 'simrat39/symbols-outline.nvim'
-    use 'RRethy/vim-illuminate'
     use 'folke/trouble.nvim'
+    use 'simrat39/symbols-outline.nvim'
 
     use 'Vimjas/vim-python-pep8-indent'
     use 'lukas-reineke/indent-blankline.nvim'
-    use 'HiPhish/rainbow-delimiters.nvim'
 
+    use 'stevearc/overseer.nvim'
     use 'mfussenegger/nvim-dap'
     use 'mfussenegger/nvim-dap-python'
     use 'rcarriga/nvim-dap-ui'
-    
-    use 'stevearc/overseer.nvim'
-
-    use {
-        'nvim-tree/nvim-tree.lua',
-        requires = {
-            'nvim-tree/nvim-web-devicons', -- optional
-        }
-    }
-    use {
-        'nvim-lualine/lualine.nvim',
-        requires = { 'nvim-tree/nvim-web-devicons', opt = true }
-    }
-
-    use 'lervag/vimtex'
 
     use 'stevearc/conform.nvim'
 
     use 'lewis6991/gitsigns.nvim'
     use "tpope/vim-fugitive"
+
+    use 'lervag/vimtex'
 
     if packer_bootstrap then
         require('packer').sync()
