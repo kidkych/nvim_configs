@@ -50,7 +50,7 @@ return require('packer').startup(function(use)
     }
     use "nvim-treesitter/playground"
 
-    use 'ojroques/nvim-osc52'
+--    use 'ojroques/nvim-osc52'
     use "theprimeagen/harpoon"
     use "mbbill/undotree"
 
