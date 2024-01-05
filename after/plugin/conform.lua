@@ -3,7 +3,8 @@ local conform = require('conform')
 conform.setup({
     formatters_by_ft = {
         python = { "isort", "black" },
-        cs = { "csharpier" }
+        cs = { "csharpier" },
+        cpp = { "clang_format" }
     },
     format_on_save = function(bufnr)
         -- Disable with a global or buffer-local variable
@@ -57,7 +58,7 @@ end, { range = true })
 -- })
 
 _G.formatexpr_wrap = function()
-    require('conform').formatexpr({ timeout_ms = 1000 })
+    require('conform').formatexpr({ timeout_ms = 1000, async = true, lsp_fallback = false })
 end
 
 vim.o.formatexpr = "v:lua.formatexpr_wrap()"

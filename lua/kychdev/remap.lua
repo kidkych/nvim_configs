@@ -29,6 +29,7 @@ vim.keymap.set("v", "<S-Up>", ":m '<-2<CR>gv=gv")
 
 vim.keymap.set("i", "<C-c>", "<Esc>")
 vim.keymap.set("n", "Q", "<nop>")
+vim.keymap.set({ "n", "v" }, "q:", "<nop>")
 
 vim.keymap.set(
     "n",
