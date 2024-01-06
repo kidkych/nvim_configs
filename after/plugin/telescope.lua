@@ -8,7 +8,6 @@ require('telescope').setup {
 }
 
 local builtin = require("telescope.builtin")
-vim.keymap.set('n', '<leader>pf', require("telescope").extensions.aerial.aerial, {})
 vim.keymap.set('n', '<leader>pb', builtin.buffers, {})
 
 vim.keymap.set('n', '<leader>pp', function()
