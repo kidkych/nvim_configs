@@ -15,7 +15,15 @@ conform.setup({
             timeout_ms = 1000,
             lsp_fallback = false
         }
-    end
+    end,
+    formatters = {
+        csharpier = {
+            cwd = require('conform.util').root_file({ ".editorconfig" }),
+            require_cwd = true,
+            command = "dotnet-csharpier",
+            inherit = true
+        }
+    }
 })
 
 vim.api.nvim_create_user_command("FormatDisable", function(args)
