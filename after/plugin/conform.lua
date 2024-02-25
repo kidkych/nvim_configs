@@ -2,7 +2,7 @@ local conform = require('conform')
 
 conform.setup({
     formatters_by_ft = {
-        python = { "isort", "black" },
+        python = { "black", "isort" },
         cs = { "csharpier" },
         cpp = { "clang_format" }
     },

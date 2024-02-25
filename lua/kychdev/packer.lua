@@ -80,6 +80,9 @@ return require('packer').startup(function(use)
     use 'hrsh7th/cmp-omni'
     use 'hrsh7th/cmp-nvim-lsp-signature-help'
     use 'Hoffs/omnisharp-extended-lsp.nvim'
+
+    use 'mfussenegger/nvim-lint'
+
     use 'folke/trouble.nvim'
     use "stevearc/aerial.nvim"
     use 'simrat39/symbols-outline.nvim'
