@@ -22,6 +22,11 @@ conform.setup({
             require_cwd = true,
             command = "dotnet-csharpier",
             inherit = true
+        },
+        isort = {
+            prepend_args = function(self, ctx)
+                return {"--profile", "black"}
+            end,
         }
     }
 })

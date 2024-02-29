@@ -1,3 +1,7 @@
+local mypy = require('lint').linters.mypy
+
+table.insert(mypy.args, "--strict")
+
 require('lint').linters_by_ft = {
     python = {'ruff', 'mypy'}
 }
