@@ -3,7 +3,16 @@ require('telescope').setup {
         file_ignore_patterns = {
             "pycache",
             "*.pyc"
+        },
+        mappings = {
+            n = {
+                ['<c-d>'] = require('telescope.actions').delete_buffer
+            },
+            i = {
+                ['<C-d>'] = require('telescope.actions').delete_buffer
+            }
         }
+
     }
 }
 
