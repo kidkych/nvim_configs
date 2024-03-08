@@ -81,6 +81,10 @@ return require('packer').startup(function(use)
     use 'hrsh7th/cmp-nvim-lsp-signature-help'
     use 'Hoffs/omnisharp-extended-lsp.nvim'
 
+    use 'saadparwaiz1/cmp_luasnip'
+    use "rafamadriz/friendly-snippets"
+    use "danymat/neogen"
+    
     use 'mfussenegger/nvim-lint'
 
     use 'folke/trouble.nvim'

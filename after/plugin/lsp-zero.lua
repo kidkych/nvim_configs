@@ -88,6 +88,8 @@ require('mason-lspconfig').setup({
     }
 })
 
+require('luasnip.loaders.from_vscode').lazy_load()
+
 local cmp = require('cmp')
 local cmp_action = lsp_zero.cmp_action()
 
@@ -95,15 +97,20 @@ cmp.setup {
     mapping = cmp.mapping.preset.insert({
         ['<CR>'] = cmp.mapping.confirm({ select = true }),
         ['<Tab>'] = cmp_action.luasnip_supertab(),
-        ['<S-Tab>'] = cmp_action.luasnip_shift_supertab()
+        ['<S-Tab>'] = cmp_action.luasnip_shift_supertab(),
+        ['<C-f>'] = cmp_action.luasnip_jump_forward(),
+        ['<C-b>'] = cmp_action.luasnip_jump_backward(),
+        ['<C-u>'] = cmp.mapping.scroll_docs(-4),
+        ['<C-d>'] = cmp.mapping.scroll_docs(4)
     }),
     sources = cmp.config.sources {
         { name = 'nvim_lsp' },
+        { name = 'nvim_lsp_signature_help' },
+        { name = 'luasnip' },
         { name = 'nvim_lua' },
         { name = 'omni' },
-        { name = "nvim_lsp_signature_help" }
     },
-    formatting = lsp_zero.cmp_format(),
+    formatting = lsp_zero.cmp_format({ details = true }),
     window = {
         completion = cmp.config.window.bordered(),
         documentation = cmp.config.window.bordered()
