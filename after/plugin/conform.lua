@@ -20,7 +20,10 @@ conform.setup({
         csharpier = {
             cwd = require('conform.util').root_file({ ".editorconfig" }),
             require_cwd = true,
-            command = "dotnet-csharpier",
+            command = "dotnet",
+            prepend_args = function(self, ctx)
+                return {"csharpier"}
+            end,
             inherit = true
         },
         isort = {
@@ -71,7 +74,7 @@ end, { range = true })
 -- })
 
 _G.formatexpr_wrap = function()
-    require('conform').formatexpr({ timeout_ms = 1000, async = true, lsp_fallback = false })
+    require('conform').formatexpr({ timeout_ms = 2000, async = true, lsp_fallback = false })
 end
 
 vim.o.formatexpr = "v:lua.formatexpr_wrap()"
