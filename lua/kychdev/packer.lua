@@ -94,10 +94,16 @@ return require('packer').startup(function(use)
     use 'Vimjas/vim-python-pep8-indent'
     use 'lukas-reineke/indent-blankline.nvim'
 
+    use {
+        "rcarriga/nvim-dap-ui",
+        requires = {
+            "mfussenegger/nvim-dap",
+            "nvim-neotest/nvim-nio"
+        }
+    }
+
     use 'stevearc/overseer.nvim'
-    use 'mfussenegger/nvim-dap'
     use 'mfussenegger/nvim-dap-python'
-    use 'rcarriga/nvim-dap-ui'
 
     use 'stevearc/conform.nvim'
 
