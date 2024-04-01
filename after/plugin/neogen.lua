@@ -5,6 +5,11 @@ require('neogen').setup({
             template = {
                 annotation_convention = "google_docstrings"
             }
+        },
+        cs = {
+            template = {
+                annotation_convention = "xmldoc"
+            }
         }
     }
 })

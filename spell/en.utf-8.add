@@ -58,3 +58,13 @@ ZeroMotion
 behaviour
 parallelizing
 Github
+func
+resize
+torchvision
+transform
+transform
+imgs
+image
+image
+ValueError
+support_tensor
