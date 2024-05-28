@@ -3,3 +3,4 @@ require('aerial').setup({
 })
 
 vim.keymap.set('n', '<leader>pf', require("telescope").extensions.aerial.aerial, {})
+vim.keymap.set('n', '<leader>a', ":AerialToggle<CR>")

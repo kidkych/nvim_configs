@@ -23,6 +23,6 @@ vim.keymap.set('n', '<leader>pp', function()
     builtin.find_files({ find_command = { 'rg', '--files', '--hidden', '--no-ignore-vcs', '-g', '!.git' } });
 end)
 
-vim.keymap.set('n', '<leader>ps', function()
+vim.keymap.set('n', '<leader>pg', function()
     builtin.grep_string({ search = vim.fn.input("Grep > ") });
 end)
