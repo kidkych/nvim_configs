@@ -2,12 +2,17 @@ local lsp_zero = require('lsp-zero')
 local trouble = require('trouble')
 
 vim.keymap.set({'n', 'x'}, "gp", function()
-    trouble.toggle('document_diagnostics')
+    trouble.toggle('diagnostics')
 end)
 
 trouble.setup({
     auto_open = false,
-    mode = "document_diagnostics"
+    modes = {
+        diagnostics_buffer = {
+            mode = "diagnostics",
+            filter = { buf = 0 },
+        }
+    }
 })
 
 vim.diagnostic.config({
