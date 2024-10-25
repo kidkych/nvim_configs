@@ -14,6 +14,21 @@ local packer_bootstrap = ensure_packer()
 return require('packer').startup(function(use)
     -- Packer can manage itself
     use "wbthomason/packer.nvim"
+    
+    use {
+        'WhoIsSethDaniel/mason-tool-installer.nvim',
+        config=function()
+            require('mason-tool-installer').setup{
+                ensure_installed = {
+                    "python-lsp-server",
+                    "debugpy",
+                    "ruff",
+                    "black",
+                    "isort"
+                }
+            }
+        end
+    }
 
     use {
         'nvim-telescope/telescope.nvim', tag = '0.1.3',
