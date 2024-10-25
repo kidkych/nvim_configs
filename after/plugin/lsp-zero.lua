@@ -1,9 +1,6 @@
 local lsp_zero = require('lsp-zero')
 local trouble = require('trouble')
 
-vim.keymap.set({'n', 'x'}, "gp", function()
-    trouble.toggle('diagnostics')
-end)
 
 trouble.setup({
     auto_open = false,
@@ -23,8 +20,11 @@ lsp_zero.on_attach(function(client, bufnr)
     lsp_zero.default_keymaps({ buffer = bufnr })
 
     local opts = { buffer = bufnr }
+    vim.keymap.set({'n', 'x'}, "gp", function()
+        trouble.toggle('diagnostics')
+    end)
     vim.keymap.set({ 'n', 'x' }, "gr", function()
-        trouble.open("lsp_references")
+        trouble.toggle("lsp_references")
     end, opts)
     vim.keymap.set({ 'n', 'x' }, "ca", function()
         vim.lsp.buf.code_action()
