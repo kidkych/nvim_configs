@@ -36,6 +36,10 @@ onedarkpro.inactive = {
     c = { bg = inactive_bg, fg = colors.fg_gutter_inactive },
 }
 
+local window = function()
+    return vim.api.nvim_win_get_number(0)
+end
+
 require('lualine').setup({
     options = {
         theme = onedarkpro
@@ -63,7 +67,7 @@ require('lualine').setup({
         lualine_z = {'location'}
     },
     inactive_sections = {
-        lualine_a = {},
+        lualine_a = {window},
         lualine_b = {'diagnostics'},
         lualine_c = {'filename'},
         lualine_x = {},
