@@ -1,13 +1,13 @@
-local mypy = require('lint').linters.mypy
-
-table.insert(mypy.args, "--strict")
-
-require('lint').linters_by_ft = {
-    python = {'ruff', 'mypy'}
-}
-
-vim.api.nvim_create_autocmd({ "BufWritePost" }, {
-    callback = function()
-        require('lint').try_lint()
-    end,
-})
+-- local mypy = require('lint').linters.mypy
+-- 
+-- table.insert(mypy.args, "--strict")
+-- 
+-- require('lint').linters_by_ft = {
+--     python = { 'mypy' }
+-- }
+-- 
+-- vim.api.nvim_create_autocmd({ "BufWritePost" }, {
+--     callback = function()
+--         require('lint').try_lint()
+--     end,
+-- })
