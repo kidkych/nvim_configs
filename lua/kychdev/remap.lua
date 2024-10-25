@@ -1,6 +1,6 @@
-vim.keymap.set("n", "h", "k")
-vim.keymap.set("n", "j", "h")
-vim.keymap.set("n", "k", "j")
+vim.keymap.set({ "n", "v" }, "h", "k")
+vim.keymap.set({ "n", "v" }, "j", "h")
+vim.keymap.set({ "n", "v" }, "k", "j")
 
 vim.g.mapleader = " "
 
