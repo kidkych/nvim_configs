@@ -16,14 +16,15 @@ dap.adapters.cppdbg = {
         command = '/home/chirag/.local/share/nvim/mason/packages/cpptools/extension/debugAdapters/bin/OpenDebugAD7'
     }
 
--- require('dap.ext.vscode').load_launchjs(
---     nil,
---     {
---         cppdbg = { 'cpp' },
---         -- codelldb = { 'cpp' },
---         coreclr = { 'cs' }
---     }
--- )
+require('dap.ext.vscode').load_launchjs(
+    ".vscode/launch.json",
+    {
+        debuppy = { 'python' },
+        cppdbg = { 'cpp' },
+        -- codelldb = { 'cpp' },
+        coreclr = { 'cs' }
+    }
+)
 
 vim.keymap.set("n", "<leader>dd", dap.continue, {})
 vim.keymap.set("n", "<leader>db", dap.toggle_breakpoint, {})
