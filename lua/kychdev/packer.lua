@@ -127,6 +127,14 @@ return require('packer').startup(function(use)
 
     use 'lervag/vimtex'
 
+    use({
+        "olimorris/codecompanion.nvim",
+        requires = {
+            "nvim-lua/plenary.nvim",
+            "nvim-treesitter/nvim-treesitter",
+        }
+    })
+
     if packer_bootstrap then
         require('packer').sync()
     end
